@@ -1,4 +1,8 @@
-const { getAllUser, getOneUser } = require("../utils/user_utilities");
+const {
+  getAllUser,
+  getOneUser,
+  deleteOneUser
+} = require("../utils/user_utilities");
 const passport = require("passport");
 const UserModel = require("../models/User.model");
 
@@ -24,6 +28,12 @@ const oneUser = (req, res) => {
     }
     res.send(user);
   });
+};
+
+const deleteUser = (req, res) => {
+  deleteOneUser(req)
+    .then(res.send("Recipe Blogger profile is deleted!"))
+    .catch(err => res.status(400).json("Error:" + err));
 };
 
 const registrationForm = (req, res) => {
@@ -58,8 +68,8 @@ const loginForm = (req, res) => {
 
 const login = (req, res, next) => {
   const loginFunc = passport.authenticate("local", {
-    successRedirect: "/user",
-    failureRedirect: "/user/login"
+    successRedirect: "/",
+    failureRedirect: "/users/login"
   });
   loginFunc(req, res, next);
 };
@@ -67,6 +77,7 @@ const login = (req, res, next) => {
 module.exports = {
   allUsers,
   oneUser,
+  deleteUser,
   registrationForm,
   createNewRegistration,
   logout,

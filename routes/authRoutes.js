@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   allUsers,
   oneUser,
+  deleteUser,
   registrationForm,
   createNewRegistration,
   logout,
@@ -17,5 +18,6 @@ router.get("/login", loginForm);
 router.post("/login", login);
 router.get("/", allUsers);
 router.get("/:id", oneUser);
+router.delete("/:id", deleteUser);
 
 module.exports = router;

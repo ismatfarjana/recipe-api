@@ -13,6 +13,7 @@ const pagesRouter = require("./routes/pagesRoutes");
 const authRouter = require("./routes/authRoutes");
 
 const app = express();
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -32,18 +33,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //express-handlebars
-app.use(express.static(__dirname + "/public"));
-app.set("view engine", "hbs");
-app.engine(
-  "hbs",
-  exphbs({
-    extname: "hbs",
-    defaultlayout: "index",
-    layoutsDir: __dirname + "views/layouts",
-    partialsDir: __dirname + "views/partials",
-    authDir: __dirname + "view/auth"
-  })
-);
+
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
 
 //database
 const uri = process.env.ATLAS_URI;
@@ -61,14 +53,14 @@ mongoose
   });
 
 //landing routes
-app.get("/", (req, res) => {
-  res.send("welcome to homepage of recipe blog!");
-});
+// app.get("/", (req, res) => {
+//   res.send(`welcome to homepage of recipe blog!`);
+// });
 
 //posts routes
 //users routes
 //authentication routes
-// app.use("/", pagesRouter);
+app.use("/", pagesRouter);
 app.use("/users", authRouter);
 // app.use("/post", postRouter);
 
