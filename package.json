@@ -1,0 +1,21 @@
+{
+  "name": "recipeblog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mongoose": "^5.10.9",
+    "nodemon": "^2.0.5"
+  }
+}
