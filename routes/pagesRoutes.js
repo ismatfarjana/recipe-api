@@ -1,10 +1,7 @@
 const router = require("express").Router();
-const { index } = require("../controllers/pages_controller");
 
-router.get("/", index);
+router.get("/", (req, res) => {
+  res.render("home", { message: "welcome to homepage of recipe blog!" });
+});
 
 module.exports = router;
-
-//app.get("/", (req, res) => {
-//   res.send(`welcome to homepage of recipe blog!`);
-// });
