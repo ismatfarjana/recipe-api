@@ -1,12 +1,13 @@
 <main>
   <h1 id="title">{{{ title }}}</h1>
-  
-  <div class="welcome_part button">
-    <a href="/users/logout">Logout</a>
-  </div>
-  <div class="welcome_part button">
-    <a href="/users/login">Login</a>
-  </div>
-
+  {{#if user }}
+    <div class="welcome_part button">
+      <a href="/users/logout">Logout</a>
+    </div>
+  {{else}}  
+    <div class="welcome_part button">
+      <a href="/users/login">Login</a>
+    </div>
+  {{/if}}
 </main>
   

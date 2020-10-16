@@ -26,7 +26,7 @@ const oneUser = (req, res) => {
         error: err.message
       });
     }
-    res.render("profile");
+    res.render("profile", { user });
   });
 };
 
