@@ -14,7 +14,7 @@ const allUsers = (req, res) => {
         error: err.message
       });
     }
-    res.send(users);
+    res.render("users", { users });
   });
 };
 
@@ -26,7 +26,7 @@ const oneUser = (req, res) => {
         error: err.message
       });
     }
-    res.send(user);
+    res.render("profile");
   });
 };
 
@@ -46,7 +46,7 @@ const createNewRegistration = (req, res, next) => {
       if (err) {
         next(err);
       } else {
-        res.redirect("/users");
+        res.redirect("/");
       }
     });
   };
