@@ -1,8 +1,10 @@
 <main>
-  <h1 id="title"> Profile page of {{{ user }}}</h1>
-
+  {{#if user }}
+    <h1> Profile page of {{{ user.name }}}</h1>
+  {{else}}
+    <h1> Register to create Your profile </h1>
+  {{/if}}  
   <div>
     Welcome {{ user.name }}!
-    
   </div>
 </main>

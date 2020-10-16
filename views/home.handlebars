@@ -1,15 +1,19 @@
 <main>
-  <h1 id="title">{{{ title }}}</h1>
+  {{#if user }}
+    <h1 id="title">Welcome {{{ user.name }}}</h1>
+  {{else}}
+    <h1 id="title">Welcome.  Please <a href="/register">Register</a> and <a href="/login">Login</a> to create your Profile</h1>
+  {{/if}}  
   {{#if user }}
     <div class="welcome_part button">
-      <a href="/users/logout">Logout</a>
+      <a href="/logout">Logout</a>
     </div>
   {{else}}  
     <div class="welcome_part button">
-      <a href="/users/login">Login</a>
+      <a href="/login">Login</a>
     </div>
     <div class="welcome_part button">
-      <a href="/users/register">Register</a>
+      <a href="/register">Register</a>
     </div>
   {{/if}}
 </main>

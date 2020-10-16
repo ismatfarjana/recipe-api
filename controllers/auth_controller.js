@@ -15,7 +15,7 @@ const allUsers = (req, res) => {
         error: err.message
       });
     }
-    res.render("users", { users });
+    res.render("users", { users, user: req.user });
   });
 };
 

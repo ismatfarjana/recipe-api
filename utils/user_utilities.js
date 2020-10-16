@@ -1,5 +1,4 @@
 const UserModel = require("../models/User.model");
-const passport = require("passport");
 
 const getAllUser = (req, res) => {
   return UserModel.find().lean();

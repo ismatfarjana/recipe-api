@@ -1,7 +1,11 @@
 <div class="navbar">
   <li><a href="/">Home</a></li>
   <li><a href="/about">About Us</a></li>
-  <li><a href="/users/user_profile">Your Profile</a></li>
+  {{#if user }}
+    <li><a href="/user_profile">Your Profile</a></li>
+  {{else}}  
+    <li><a href="/register">Register</a></li>
+  {{/if}}  
   <li><a href="/contact">Contact Us</a></li>
   <li><a href="/users">Our All Bloggers</a></li>
 </div>
