@@ -1,7 +1,8 @@
 const {
   getAllUser,
   getOneUser,
-  deleteOneUser
+  deleteOneUser,
+  getCurrentUser
 } = require("../utils/user_utilities");
 const passport = require("passport");
 const UserModel = require("../models/User.model");
@@ -27,6 +28,19 @@ const oneUser = (req, res) => {
       });
     }
     res.render("profile", { user });
+  });
+};
+
+//current user
+const currentUser = (req, res) => {
+  getCurrentUser(req.user._id).exec((err, user) => {
+    if (err) {
+      res.status(500);
+      return res.json({
+        error: err.message
+      });
+    }
+    res.render("user_profile", { user });
   });
 };
 
@@ -77,6 +91,7 @@ const login = (req, res, next) => {
 module.exports = {
   allUsers,
   oneUser,
+  currentUser,
   deleteUser,
   registrationForm,
   createNewRegistration,

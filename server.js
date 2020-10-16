@@ -27,6 +27,12 @@ app.use(
   })
 );
 
+//getting current user
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 //config local stratagy for passport
 require("./middleware/passport");
 app.use(passport.initialize());

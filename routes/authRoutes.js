@@ -4,6 +4,7 @@ const {
   allUsers,
   oneUser,
   deleteUser,
+  currentUser,
   registrationForm,
   createNewRegistration,
   logout,
@@ -16,8 +17,10 @@ router.post("/register", createNewRegistration);
 router.get("/logout", logout);
 router.get("/login", loginForm);
 router.post("/login", login);
-router.get("/", allUsers);
+
 router.get("/:id", oneUser);
+router.get("/user_profile", currentUser);
 router.delete("/:id", deleteUser);
+router.get("/", allUsers);
 
 module.exports = router;
