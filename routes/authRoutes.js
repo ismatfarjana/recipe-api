@@ -16,7 +16,7 @@ const {
 //alway pass the dynamic object key, valu into the routes
 
 router.get("/", (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   res.render("home", { user: req.user });
 });
 

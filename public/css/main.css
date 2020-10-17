@@ -6,6 +6,7 @@ html {
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
+  text-align: center;
 }
 
 main {
@@ -22,6 +23,13 @@ h1 {
 image {
   width: 10px;
   padding-bottom: 10px;
+}
+form {
+  display: flex;
+  flex-flow: column;
+  width: 140px;
+  margin: auto;
+  padding-bottom: 20px;
 }
 
 .navbar {
