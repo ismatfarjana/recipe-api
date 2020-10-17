@@ -107,15 +107,14 @@
 
 ## 5. passport local strategy and express-session
 
-|  | snippets |
-| -------- | -------- | -------- |
+| location | snippets |
+| -------- | -------- |
 | in **server.js**: for express-session add this part of code with required value for the keys| ![](https://i.imgur.com/YurOsQL.png)|
-|in **server.js**: to get the current user add this part of code|![](https://i.imgur.com/z7u8mIy.png)
- |
+|in **server.js**: to get the current user add this part of code|![](https://i.imgur.com/z7u8mIy.png)|
 | on the **root**: create a folder **middleware** and add **passport.js** file in it| **`mkdir middleware && touch passport.js`**|
 |in **passport.js**: add this codes | ![](https://i.imgur.com/z8NSuIN.png)|
 | config passport strategy| ![](https://i.imgur.com/tADWAY1.png)|
-| Text     | Text     | Text     |
+
 
 
 ---
