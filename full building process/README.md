@@ -120,7 +120,7 @@
 ---
 
 
-## 8. Set up User utilities
+## 6. Set up User utilities
 
  | location | steps to do ||
  | -------- | -------- |-|
@@ -143,7 +143,7 @@
 
 ---
 
-## 9. Set up user/auth controller
+## 7. Set up user/auth controller
 
 | loaction | steps to do |||
 | -------- | -------- |-|-|
@@ -161,13 +161,13 @@
 |||* registration form |![](https://i.imgur.com/4m3fQmZ.png)|
 
 
-*later we will add **express-handlebars** templates to **render** in **registration form** and **login form** on **step 11 & 12***
+* later we will add **express-handlebars** templates to **render** in **registration form** and **login form** *
 
 
 
 ---
 
-## 10. Set up user routes
+## 8. Set up user routes
 
 | steps to do |  |||
 | -------- | -------- |-|-|
@@ -184,7 +184,7 @@
 ---
 
 
-## 11. Add public and View file on roote for frontend
+## 9. Add public and View file on roote for frontend
 
 | location | steps to do | snippets and terminal commands |
 | -------- | -------- | -------- |
@@ -209,7 +209,7 @@
 ___
 
 
-## 12.  Express-handlebars 
+## 10.  Express-handlebars 
 
 |location |steps to do | snippets |
 | -------- | -------- | -------- |
@@ -225,7 +225,7 @@ ___
 
 
 
-## 13. Pull in routes in the server
+## 11. Pull in routes in the server
 
 | steps to do |  |  |
 | -------- | -------- | -------- |
@@ -240,7 +240,7 @@ ___
 
 
 
-## 14. Test API end points on insomnia/postman
+## 12. Test API end points on insomnia/postman
 
 | steps | urls | snippets |
 | -------- | -------- | -------- |
