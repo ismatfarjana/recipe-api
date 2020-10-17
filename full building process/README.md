@@ -52,8 +52,8 @@
 
 ## 2. Setup MongoDb database
 
-| **Steps to follow** | Codes to write |  
-| -------- | -------- | -------- |
+| **Steps to follow** | Codes to write | 
+| -------- | -------- | 
 | sign up to mongo atlas    | Text     | 
 | create an organization(optional)     | Text     | Text     |
 | create a new project | Text     | Text     |
