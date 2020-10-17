@@ -76,8 +76,7 @@
 | Column 1 | Column 2 | Column 3 |
 | -------- | -------- | -------- |
 | pull in required dependencies    |  | ![](https://i.imgur.com/xCSp8pU.png)|
-| initialize app using **expresss()**|`const app = express();`| ![](https://i.imgur.com/F4zvDM8.png)
- |
+| initialize app using **expresss()**|`const app = express();`| ![](https://i.imgur.com/F4zvDM8.png)|
 | pull in ATLAS_URI from .env file|`const uri = process.env.ATLAS_URI;` |![](https://i.imgur.com/JGDDZLK.png)|
 |connect to mongodb using mongoose | | ![](https://i.imgur.com/LP2VD6v.png)|
 | set the port to run the server|`const port = process.env.PORT || 8000;`|![](https://i.imgur.com/cCyUh6t.png)|
