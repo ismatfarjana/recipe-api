@@ -2,7 +2,7 @@
   {{#if user }}
     <h1 id="title">Welcome {{{ user.name }}}</h1>
   {{else}}
-    <h1 id="title">Welcome.  Please <a href="/register">Register</a> and <a href="/login">Login</a> to create your Profile</h1>
+    <h1 id="title">Welcome.  Please <a class="auth" href="/register">Register</a> and <a class="auth" href="/login">Login</a> to create your Profile</h1>
   {{/if}}  
   {{#if user }}
     <div class="welcome_part button">

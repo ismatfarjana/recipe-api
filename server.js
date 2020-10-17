@@ -14,6 +14,7 @@ const authRouter = require("./routes/authRoutes");
 
 const app = express();
 app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public/image"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

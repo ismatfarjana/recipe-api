@@ -1,13 +1,23 @@
 <div class="navbar">
-  <a href="/">Home</a>
-  <a href="/about">About Us</a>
-  {{#if user }}
-    <a href="/user_profile">Your Profile</a>
-  {{else}}  
-    <a href="/register">Register</a>
-  {{/if}}  
-  <a href="/contact">Contact Us</a>
-  <a href="/users">Our All Bloggers</a>
+  <div class="navbarParts">
+    <image src="logo.png" alt="logo of Recipe blog"/>
+  </div>
+  
+  <div class="navbarParts">
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    {{#if user }}
+      <a href="/user_profile">Your Profile</a>
+    {{else}}  
+      <a href="/register">Register</a>
+    {{/if}}  
+    <a href="/contact">Contact Us</a>
+    <a href="/users">Our All Bloggers</a>
+    <a>All Recipes</a>
+  </div>
+
+  
+  
 </div>
 
 
