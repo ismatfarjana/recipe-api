@@ -9,7 +9,7 @@ require("dotenv").config();
 
 //pulling in routes
 const postRouter = require("./routes/postRoutes");
-// const pagesRouter = require("./routes/pagesRoutes");
+
 const authRouter = require("./routes/authRoutes");
 
 const app = express();
@@ -65,9 +65,7 @@ mongoose
 // });
 
 //posts routes
-//users routes
-//authentication routes
-// app.use("/", pagesRouter);
+//user authentication routes
 app.use("/", authRouter);
 // app.use("/post", postRouter);
 

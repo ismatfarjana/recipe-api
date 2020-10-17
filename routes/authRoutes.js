@@ -13,7 +13,7 @@ const {
 } = require("../controllers/auth_controller");
 
 //routes for pages
-//alway pass the dynamic object key, valu into the routes
+//alway pass the dynamic object key, value into the routes
 
 router.get("/", (req, res) => {
   // console.log(req.user);
