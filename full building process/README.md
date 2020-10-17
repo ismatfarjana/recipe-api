@@ -154,8 +154,7 @@
 |  | * GET all users |![](https://i.imgur.com/58Xc4fr.png)|
 || * GET one user |![](https://i.imgur.com/cdEV5pU.png)|
 ||* GET current user |![](https://i.imgur.com/xOf1d6m.png)|
-||* DELETE one user |![](https://i.imgur.com/hgeSZ5l.png)
-|
+||* DELETE one user |![](https://i.imgur.com/hgeSZ5l.png)|
 ||* Create new registration |![](https://i.imgur.com/Wr1f8qK.png)|
 ||* Login user |![](https://i.imgur.com/f9526Dp.png)
 ||* Logout user |![](https://i.imgur.com/ZwCdGFa.png)|
