@@ -1,14 +1,13 @@
 const {
   getAllUser,
-  getOneUser,
-  deleteOneUser,
-  getCurrentUser
+  getOneUserById,
+  deleteOneUserById
 } = require("../utils/user_utilities");
 const passport = require("passport");
 const UserModel = require("../models/User.model");
 
 const allUsers = (req, res) => {
-  getAllUser(req).exec((err, users) => {
+  getAllUser().exec((err, users) => {
     if (err) {
       res.status(500);
       return res.json({
@@ -20,7 +19,7 @@ const allUsers = (req, res) => {
 };
 
 const oneUser = (req, res) => {
-  getOneUser(req).exec((err, user) => {
+  getOneUserById(req.params.id).exec((err, user) => {
     if (err) {
       res.status(500);
       return res.json({
@@ -33,7 +32,7 @@ const oneUser = (req, res) => {
 
 //current user
 const currentUser = (req, res) => {
-  getCurrentUser(req.user._id).exec((err, user) => {
+  getOneUserById(req.user._id).exec((err, user) => {
     if (err) {
       res.status(500);
       return res.json({
@@ -45,7 +44,7 @@ const currentUser = (req, res) => {
 };
 
 const deleteUser = (req, res) => {
-  deleteOneUser(req)
+  deleteOneUserById(req.params.id)
     .then(res.send("Recipe Blogger profile is deleted!"))
     .catch(err => res.status(400).json("Error:" + err));
 };

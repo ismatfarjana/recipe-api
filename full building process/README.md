@@ -17,7 +17,7 @@
 | create **.gitignore** file and **.env**, **.env.example** file    | **```touch .gitignore .env .env.example```** ||
 | within **`.gitignore`**| add **`.env`** and **`/node_modules`** to avoid uploading this to github|![](https://i.imgur.com/CAto2qj.png)
 
-
+* **.gitignore** file to avoid uploading sensetive information on git hub
 
 
 ## *Description of each package and the function:*
@@ -128,13 +128,13 @@
  | inside **utils**| create **user_utilities.js** file | **`touch user_utilities.js`** |
  |  Within **user_utilities.js** |* require user model||
  ||* set variable for:| get all user from database |
- | ||get one user from database|
- | ||get current user from database|
- | ||delete one user from database|
+ | ||get one user by id from database|
+ | ||delete one user by id from database|
  ||* export model||
  
- ## at the end user_utilities.js file:
- ![](https://i.imgur.com/0GXx31I.png)
+  ## at the end user_utilities.js file:
+ ![](https://i.imgur.com/amDgVk2.png)
+
 
  
  
@@ -145,20 +145,23 @@
 
 ## 7. Set up user/auth controller
 
-| loaction | steps to do |||
-| -------- | -------- |-|-|
+| loaction | steps to do ||
+| -------- | -------- |-|
 | on the **root**| create **controllers** folder  | **`mkdir controllers && cd controllers`** |
 | inside **controllers**| create **auth_controller.js** file | **`touch auth_controller.js`** |
-| inside **auth_controller.js** file|require user_utilities, passport, user model   |  ![](https://i.imgur.com/HMenAmy.png)|
-|| set function for | * GET all users |![](https://i.imgur.com/c5kvXpo.png)|
-||| * GET one user |![](https://i.imgur.com/NJhoEDy.png)|
-|||* GET current user |![](https://i.imgur.com/D1h7ne3.png)|
-|||* DELETE one user |![](https://i.imgur.com/mbWZLRl.png)|
-|||* Create new registration |![](https://i.imgur.com/Wr1f8qK.png)|
-|||* Login user |![](https://i.imgur.com/f9526Dp.png)
-|||* Logout user |![](https://i.imgur.com/ZwCdGFa.png)|
-|||* Login form |![](https://i.imgur.com/2YwRBSG.png)|
-|||* registration form |![](https://i.imgur.com/4m3fQmZ.png)|
+| inside **auth_controller.js** file|require user_utilities, passport, user model   |![](https://i.imgur.com/obPj72s.png)|
+|inside **auth_controller.js** file|set function for ⬇️| |
+|  | * GET all users |![](https://i.imgur.com/58Xc4fr.png)|
+|| * GET one user |![](https://i.imgur.com/cdEV5pU.png)|
+||* GET current user |![](https://i.imgur.com/xOf1d6m.png)|
+||* DELETE one user |![](https://i.imgur.com/hgeSZ5l.png)
+|
+||* Create new registration |![](https://i.imgur.com/Wr1f8qK.png)|
+||* Login user |![](https://i.imgur.com/f9526Dp.png)
+||* Logout user |![](https://i.imgur.com/ZwCdGFa.png)|
+||* Login form |![](https://i.imgur.com/2YwRBSG.png)|
+||* registration form |![](https://i.imgur.com/4m3fQmZ.png)|
+
 
 
 * later we will add **express-handlebars** templates to **render** in **registration form** and **login form** *
