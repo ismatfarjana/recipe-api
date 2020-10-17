@@ -246,16 +246,17 @@ ___
 
 | steps | urls | snippets |
 | -------- | -------- | -------- |
-| home    | GET `http://localhost:8000` | Text     |
-| registration form     | GET `http://localhost:8000/register`    | Text     |
-| register new user     | POST `http://localhost:8000/register`    | Text     |
-| login form     | GET `http://localhost:8000/login`    | Text     |
+| home    | GET `http://localhost:8000` |![](https://i.imgur.com/R5vq00w.png)|
+| registration form     | GET `http://localhost:8000/register`    | ![](https://i.imgur.com/O3MDqlA.png)|
+| register new user     | POST `http://localhost:8000/register`    | ![](https://i.imgur.com/tHQRQKC.png)|
+| login form     | GET `http://localhost:8000/login`    |![](https://i.imgur.com/LWN0Xls.png)|
 | login user    | POST `http://localhost:8000/login`    | Text     |
-| get all users     | GET `http://localhost:8000/users`     | Text     |
-| get one user    | GET `http://localhost:8000/:id` | Text     |
-| get current user  | GET `http://localhost:8000/user_profile`  | Text     |
+| get all users     | GET `http://localhost:8000/users`     | ![](https://i.imgur.com/GqfHmsF.png)|
+| get one user    | GET `http://localhost:8000/:id` | ![](https://i.imgur.com/uqkTxQi.png)|
+| get current user  | GET `http://localhost:8000/user_profile`  | ![](https://i.imgur.com/PB98pKi.png)|
 | logout user    | GET `http://localhost:8000/logout`    | Text     |
-| delete one user    | DELETE `http://localhost:8000/:id`    | Text     |
+| delete one user    | DELETE `http://localhost:8000/:id`    | ![](https://i.imgur.com/BWyf0wz.png)|
+
 
 
 
