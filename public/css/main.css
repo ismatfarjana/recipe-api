@@ -1,3 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
 html {
-  background-color: rgb(244, 165, 156);
+  background-color: rgb(231, 236, 245);
+}
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  color: rgb(4, 2, 26);
+}
+.navbar {
+  background-color: rgb(1, 26, 13);
+  margin: 0;
+  padding: 3vw;
+  display: flex;
+  justify-content: center;
+}
+a {
+  color: rgb(240, 231, 230);
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+footer {
+  font-size: 13px;
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% + 100px);
+  text-align: center;
+  padding: 10px 0;
 }
