@@ -1,2 +1,4 @@
 .env
 /node_modules
+/building_process_user
+/building_process_user/README.md
