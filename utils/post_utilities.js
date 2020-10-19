@@ -13,42 +13,37 @@ const createOnePost = (req, res) => {
     description,
     date
   });
-  newPost
+  return newPost
     .save()
-    .then(newPost => res.send(newPost))
+    .then(newPost => console.log(newPost))
     .catch();
 };
 
-const getAllPosts = req => {
+const getAllPosts = () => {
   return PostModel.find().lean();
 };
 
-const getOnePost = id => {
+const getOnePostById = id => {
   return PostModel.findById(id).lean();
 };
 
-const updateOnePost = req => {
-  return PostModel.findByIdAndUpdate(req.params.id)
-    .then(post => {
-      post.title = req.body.title;
-      post.author = req.body.author;
-      post.authorId = req.body.authorId;
-      post.description = req.body.description;
-      post.date = Date.parse(req.body.date);
-
-      post.save().then(post => post);
-    })
-    .catch(err => res.status(400).json("Error:" + err));
+const updateOnePostById = id => {
+  return PostModel.findByIdAndUpdate(id);
 };
 
 const deleteOnePost = id => {
   return PostModel.findByIdAndDelete(id).lean();
 };
 
+const commentOnAPostById = id => {
+  return PostModel.findById(id).lean();
+};
+
 module.exports = {
   createOnePost,
   getAllPosts,
-  getOnePost,
-  updateOnePost,
-  deleteOnePost
+  getOnePostById,
+  updateOnePostById,
+  deleteOnePost,
+  commentOnAPostById
 };

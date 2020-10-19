@@ -9,12 +9,12 @@ require("dotenv").config();
 
 //pulling in routes
 const postRouter = require("./routes/postRoutes");
-
 const authRouter = require("./routes/authRoutes");
 
 const app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/public/image"));
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -59,15 +59,8 @@ mongoose
     console.error("Error connecting to mongoDB", err);
   });
 
-//landing routes
-// app.get("/", (req, res) => {
-//   res.send(`welcome to homepage of recipe blog!`);
-// });
-
-//posts routes
-//user authentication routes
 app.use("/", authRouter);
-// app.use("/post", postRouter);
+app.use("/posts", postRouter);
 
 //port
 const port = process.env.PORT || 8000;
