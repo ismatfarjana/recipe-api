@@ -1,6 +1,7 @@
 const PostModel = require("../models/Post.model");
 
-const createOnePost = (req, res) => {
+//create
+const addPost = (req, res) => {
   const title = req.body.title;
   const author = req.body.author;
   const authorId = req.body.authorId;
@@ -13,36 +14,42 @@ const createOnePost = (req, res) => {
     description,
     date
   });
-  return newPost
-    .save()
-    .then(newPost => console.log(newPost))
-    .catch();
+  return newPost.save();
 };
 
-const getAllPosts = () => {
+//read
+const allPosts = () => {
   return PostModel.find().lean();
 };
 
-const getOnePostById = id => {
+const onePostById = id => {
   return PostModel.findById(id).lean();
 };
 
+const getUsersAllPosts = userId => {
+  return PostModel.find({ authorId: userId }).lean();
+};
+
+//update
 const updateOnePostById = id => {
   return PostModel.findByIdAndUpdate(id);
 };
 
+//delete
 const deleteOnePost = id => {
   return PostModel.findByIdAndDelete(id).lean();
 };
 
+//add comment
 const commentOnAPostById = id => {
   return PostModel.findById(id).lean();
 };
 
 module.exports = {
-  createOnePost,
-  getAllPosts,
-  getOnePostById,
+  addPost,
+  allPosts,
+  onePostById,
+  getUsersAllPosts,
   updateOnePostById,
   deleteOnePost,
   commentOnAPostById

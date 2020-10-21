@@ -53,7 +53,7 @@ mongoose
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Connected to MongoDB!");
+    console.log("🎃 🎃 🎃 🎃 🎃 🎃 Connected to MongoDB!🎃 🎃 🎃 🎃 🎃 🎃 🎃");
   })
   .catch(err => {
     console.error("Error connecting to mongoDB", err);
@@ -66,5 +66,5 @@ app.use("/posts", postRouter);
 const port = process.env.PORT || 8000;
 //listening to port
 app.listen(port, () => {
-  console.log(`Express API listening on port ${port}!`);
+  console.log(`🌻 🌻 🌻 Express API listening on port ${port}!🌻 🌻 🌻`);
 });
