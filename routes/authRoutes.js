@@ -36,7 +36,7 @@ router.get("/logout", logout);
 // router.get("/login", loginForm);
 router.post("/login", login);
 router.get("/user_profile", currentUser);
-router.get("/users", allUsers);
+router.get("/all", allUsers);
 router.get("/:id", oneUser);
 router.delete("/:id", deleteUser);
 

@@ -59,12 +59,17 @@ mongoose
     console.error("Error connecting to mongoDB", err);
   });
 
-app.use("/users", authRouter);
-app.use("/posts", postRouter);
+app.get("/", (req, res) => {
+  res.send("Homepage");
+});
+app.use("/api/users", authRouter);
+app.use("/api/posts", postRouter);
 
 //port
 const port = process.env.PORT || 8000;
 //listening to port
 app.listen(port, () => {
-  console.log(`🌻 🌻 🌻 Express API listening on port ${port}!🌻 🌻 🌻`);
+  console.log(
+    `🌻 🌻 🌻 Express API listening on port http://localhost:${port} !🌻 🌻 🌻`
+  );
 });

@@ -7,45 +7,29 @@ const passport = require("passport");
 const UserModel = require("../models/User.model");
 
 const allUsers = (req, res) => {
-  getAllUser().exec((err, users) => {
-    if (err) {
-      res.status(500);
-      return res.json({
-        error: err.message
-      });
-    }
-    res.render("users", { users, user: req.user });
-  });
+  getAllUser()
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json("Error while adding new user:" + err));
 };
 
 const oneUser = (req, res) => {
-  getOneUserById(req.params.id).exec((err, user) => {
-    if (err) {
-      res.status(500);
-      return res.json({
-        error: err.message
-      });
-    }
-    res.render("profile", { user });
-  });
+  getOneUserById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => res.status(500).json("Error while getting one user:" + err));
 };
 
 //current user
 const currentUser = (req, res) => {
-  getOneUserById(req.user._id).exec((err, user) => {
-    if (err) {
-      res.status(500);
-      return res.json({
-        error: err.message
-      });
-    }
-    res.render("user_profile", { user });
-  });
+  getOneUserById(req.user._id)
+    .then(user => res.json(user))
+    .catch(err =>
+      res.status(500).json("Error while getting current user:" + err)
+    );
 };
 
 const deleteUser = (req, res) => {
   deleteOneUserById(req.params.id)
-    .then(res.send("Recipe Blogger profile is deleted!"))
+    .then(res.send("user profile is deleted!"))
     .catch(err => res.status(400).json("Error:" + err));
 };
 
