@@ -66,7 +66,7 @@ const logout = (req, res) => {
 
 const login = (req, res, next) => {
   const loginFunc = passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/api/users/user_profile",
     failureRedirect: "/users/login"
   });
   loginFunc(req, res, next);

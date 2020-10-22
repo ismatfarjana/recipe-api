@@ -2,9 +2,10 @@ const PostModel = require("../models/Post.model");
 
 //create
 const addPost = req => {
+  console.log(req.user);
   const title = req.body.title;
-  const author = req.body.author;
-  const authorId = req.body.authorId;
+  const author = req.user.name;
+  const authorId = req.user._id;
   const description = req.body.description;
   const date = Date.parse(req.body.date);
   const newPost = new PostModel({
@@ -31,15 +32,24 @@ const getUsersAllPosts = userId => {
 };
 
 //update
-const updateOnePostById = id => {
-  PostModel.findByIdAndUpdate(id)
-    .then(post => {
-      post.title = req.body.title;
-      post.description = req.body.description;
-
-      return post.save();
-    })
-    .catch();
+const updateOnePostById = (req, res) => {
+  return PostModel.findByIdAndUpdate(
+    req.params.id,
+    {
+      title: req.body.title,
+      description: req.body.description
+    },
+    {
+      new: true //why true?? try to remeber :P
+    },
+    (err, post) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(post);
+      }
+    }
+  );
 };
 
 //delete

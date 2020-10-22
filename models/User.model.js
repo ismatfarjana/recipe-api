@@ -7,5 +7,9 @@ const User = new Schema({
   password: { type: String, requird: true }
 });
 
-User.plugin(require("mongoose-bcrypt"));
+User.plugin(require("mongoose-bcrypt"), {
+  fields: ["password"]
+});
+
+// User.plugin(require("mongoose-bcrypt"));
 module.exports = mongoose.model("User", User);

@@ -14,16 +14,16 @@ const authRouter = require("./routes/authRoutes");
 const app = express();
 // app.use(express.static(__dirname + "/public"));
 // app.use(express.static(__dirname + "/public/image"));
-app.use(express.json());
-app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(
   expressSession({
-    secret: "World is not a fair place",
+    secret: "meh",
     resave: false,
     saveUninitialized: true,
-    cookie: { expires: 2000000 },
+    cookie: { expires: 20000000 },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
@@ -50,7 +50,8 @@ mongoose
   .connect(uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
   })
   .then(() => {
     console.log("🎃 🎃 🎃 🎃 🎃 🎃 Connected to MongoDB!🎃 🎃 🎃 🎃 🎃 🎃 🎃");
@@ -58,6 +59,8 @@ mongoose
   .catch(err => {
     console.error("Error connecting to mongoDB", err);
   });
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Homepage");

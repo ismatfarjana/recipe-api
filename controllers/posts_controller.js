@@ -9,52 +9,56 @@ const {
 } = require("../utils/post_utilities");
 
 const addNewPost = (req, res) => {
+  console.log(req.user);
   addPost(req)
     .then(post => {
       console.log(post);
       console.log("saved post!", post);
       res.json(post);
     })
-    .catch(err => res.status(400).json("Error while adding new todo:" + err));
+    .catch(err => res.status(400).json("Error while adding new post:" + err));
 };
 
 //all post
 const allPosts = (req, res) => {
   getAllPosts(req)
     .then(posts => res.json(posts))
-    .catch(err => res.status(400).json("Error while adding new todo:" + err));
+    .catch(err => res.status(400).json("Error while getting all posts:" + err));
 };
 
 //users all posts
 const usersAllPosts = (req, res) => {
-  getUsersAllPosts(req.params.UserId)
+  getUsersAllPosts(req.params.userId)
     .then(posts => res.json(posts))
-    .catch(err => res.status(400).json("Error while adding new todo:" + err));
+    .catch(err =>
+      res.status(400).json("Error while getting users all posts:" + err)
+    );
 };
 
 //current users all posts
 const currentUsersAllPosts = (req, res) => {
+  console.log(req.user);
   getUsersAllPosts(req.user._id)
     .then(posts => res.json(posts))
-    .catch(err => res.status(400).json("Error while adding new todo:" + err));
+    .catch(err =>
+      res.status(500).json("Error while getting current users all posts:" + err)
+    );
 };
 
 //one post
 const onePost = (req, res) => {
   getOnePostById(req)
     .then(post => res.json(post))
-    .catch(err => res.status(500).json("Error while adding new todo:" + err));
+    .catch(err => res.status(500).json("Error while getting one post:" + err));
 };
 
 //update post
 const updatePost = (req, res) => {
-  updateOnePostById(req.params.id)
-    .then(post => res.json(post))
-    .catch(err => res.status(500).json("Error while adding new todo:" + err));
+  updateOnePostById(req, res);
 };
 
 // delete post
-const deletePost = req => {
+const deletePost = (req, res) => {
   deleteOnePost(req.params.id)
     .then(res.send("Post is deleted!"))
     .catch(err => res.status(400).json("Error:" + err));
@@ -81,7 +85,7 @@ const addNewComment = (req, res) => {
     res.json(addComment);
   } else {
     res.status(500);
-    res.send(`Error: error while updating post ${req.error}`);
+    res.send(`Error: error while adding comment: ${req.error}`);
   }
 };
 
