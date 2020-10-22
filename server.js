@@ -1,7 +1,7 @@
 const express = require("express");
 const expressSession = require("express-session");
 const bodyParser = require("body-parser");
-const exphbs = require("express-handlebars");
+// const exphbs = require("express-handlebars");
 const MongoStore = require("connect-mongo")(expressSession);
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -12,8 +12,8 @@ const postRouter = require("./routes/postRoutes");
 const authRouter = require("./routes/authRoutes");
 
 const app = express();
-app.use(express.static(__dirname + "/public"));
-app.use(express.static(__dirname + "/public/image"));
+// app.use(express.static(__dirname + "/public"));
+// app.use(express.static(__dirname + "/public/image"));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,8 +41,8 @@ app.use(passport.session());
 
 //express-handlebars
 
-app.engine("handlebars", exphbs());
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbs());
+// app.set("view engine", "handlebars");
 
 //database
 const uri = process.env.ATLAS_URI;
@@ -59,7 +59,7 @@ mongoose
     console.error("Error connecting to mongoDB", err);
   });
 
-app.use("/", authRouter);
+app.use("/users", authRouter);
 app.use("/posts", postRouter);
 
 //port

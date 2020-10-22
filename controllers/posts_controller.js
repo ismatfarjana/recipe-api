@@ -1,75 +1,61 @@
 const {
-  createOnePost,
+  addPost,
   getAllPosts,
   getOnePostById,
+  getUsersAllPosts,
   updateOnePostById,
   deleteOnePost,
   commentOnAPostById
 } = require("../utils/post_utilities");
 
-//new post form
-const newPostForm = res => {
-  res.render("post/form");
-};
-
-const createNewPost = (req, res) => {
-  let post = createOnePost(req);
-  if (post) {
-    res.status(201);
-    res.send(post);
-  } else {
-    res.status(500);
-    res.send(`Error: error while creating post ${req.error}`);
-  }
+const addNewPost = (req, res) => {
+  addPost(req)
+    .then(post => {
+      console.log(post);
+      console.log("saved post!", post);
+      res.json(post);
+    })
+    .catch(err => res.status(400).json("Error while adding new todo:" + err));
 };
 
 //all post
 const allPosts = (req, res) => {
-  getAllPosts(req).exec((err, posts) => {
-    if (err) {
-      res.status(500);
-      return res.json({
-        error: err.message
-      });
-    }
-    res.send(posts);
-  });
+  getAllPosts(req)
+    .then(posts => res.json(posts))
+    .catch(err => res.status(400).json("Error while adding new todo:" + err));
+};
+
+//users all posts
+const usersAllPosts = (req, res) => {
+  getUsersAllPosts(req.params.UserId)
+    .then(posts => res.json(posts))
+    .catch(err => res.status(400).json("Error while adding new todo:" + err));
+};
+
+//current users all posts
+const currentUsersAllPosts = (req, res) => {
+  getUsersAllPosts(req.user._id)
+    .then(posts => res.json(posts))
+    .catch(err => res.status(400).json("Error while adding new todo:" + err));
 };
 
 //one post
 const onePost = (req, res) => {
-  getOnePostById(req).exec((err, post) => {
-    if (err) {
-      res.status(500);
-      return res.json({
-        error: err.message
-      });
-    }
-    res.render("one_post", { post });
-  });
+  getOnePostById(req)
+    .then(post => res.json(post))
+    .catch(err => res.status(500).json("Error while adding new todo:" + err));
 };
 
 //update post
 const updatePost = (req, res) => {
-  let updatedPost = updateOnePostById(req.params.id).then(post => {
-    post.title = req.body.title;
-    post.description = req.body.description;
-
-    post.save();
-  });
-
-  if (updatedPost) {
-    res.status(201);
-    res.json(updatedPost);
-  } else {
-    res.status(500);
-    res.send(`Error: error while updating post ${req.error}`);
-  }
+  updateOnePostById(req.params.id)
+    .then(post => res.json(post))
+    .catch(err => res.status(500).json("Error while adding new todo:" + err));
 };
 
 // delete post
-const deletePost = (req, res) => {
-  deleteOnePost(req)
+const deletePost = req => {
+  deleteOnePost(req.params.id)
     .then(res.send("Post is deleted!"))
     .catch(err => res.status(400).json("Error:" + err));
 };
@@ -100,11 +86,12 @@ const addNewComment = (req, res) => {
 };
 
 module.exports = {
+  addNewPost,
   allPosts,
+  usersAllPosts,
+  currentUsersAllPosts,
   onePost,
   updatePost,
   deletePost,
-  newPostForm,
-  createNewPost,
   addNewComment
 };

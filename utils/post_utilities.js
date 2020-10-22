@@ -1,7 +1,7 @@
 const PostModel = require("../models/Post.model");
 
 //create
-const addPost = (req, res) => {
+const addPost = req => {
   const title = req.body.title;
   const author = req.body.author;
   const authorId = req.body.authorId;
@@ -18,37 +18,44 @@ const addPost = (req, res) => {
 };
 
 //read
-const allPosts = () => {
-  return PostModel.find().lean();
+const getAllPosts = () => {
+  return PostModel.find();
 };
 
-const onePostById = id => {
-  return PostModel.findById(id).lean();
+const getOnePostById = id => {
+  return PostModel.findById(id);
 };
 
 const getUsersAllPosts = userId => {
-  return PostModel.find({ authorId: userId }).lean();
+  return PostModel.find({ authorId: userId });
 };
 
 //update
 const updateOnePostById = id => {
-  return PostModel.findByIdAndUpdate(id);
+  PostModel.findByIdAndUpdate(id)
+    .then(post => {
+      post.title = req.body.title;
+      post.description = req.body.description;
+
+      return post.save();
+    })
+    .catch();
 };
 
 //delete
 const deleteOnePost = id => {
-  return PostModel.findByIdAndDelete(id).lean();
+  return PostModel.findByIdAndDelete(id);
 };
 
 //add comment
 const commentOnAPostById = id => {
-  return PostModel.findById(id).lean();
+  return PostModel.findById(id);
 };
 
 module.exports = {
   addPost,
-  allPosts,
-  onePostById,
+  getAllPosts,
+  getOnePostById,
   getUsersAllPosts,
   updateOnePostById,
   deleteOnePost,

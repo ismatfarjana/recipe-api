@@ -49,9 +49,9 @@ const deleteUser = (req, res) => {
     .catch(err => res.status(400).json("Error:" + err));
 };
 
-const registrationForm = (req, res) => {
-  res.render("auth/register");
-};
+// const registrationForm = (req, res) => {
+//   res.render("auth/register");
+// };
 
 const createNewRegistration = (req, res, next) => {
   const newUserHandler = user => {
@@ -59,7 +59,8 @@ const createNewRegistration = (req, res, next) => {
       if (err) {
         next(err);
       } else {
-        res.redirect("/");
+        // res.redirect("/");
+        res.json(user);
       }
     });
   };
@@ -71,13 +72,13 @@ const createNewRegistration = (req, res, next) => {
 
 const logout = (req, res) => {
   req.session.destroy(() => {
-    res.redirect("/");
+    res.json("User logged out!");
   });
 };
 
-const loginForm = (req, res) => {
-  res.render("auth/login");
-};
+// const loginForm = (req, res) => {
+//   res.render("auth/login");
+// };
 
 const login = (req, res, next) => {
   const loginFunc = passport.authenticate("local", {
@@ -92,9 +93,9 @@ module.exports = {
   oneUser,
   currentUser,
   deleteUser,
-  registrationForm,
+  // registrationForm,
   createNewRegistration,
   logout,
-  loginForm,
+  // loginForm,
   login
 };

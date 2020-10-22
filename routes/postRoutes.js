@@ -1,17 +1,19 @@
 const router = require("express").Router();
 const {
+  addNewPost,
   allPosts,
+  usersAllPosts,
+  currentUsersAllPosts,
   onePost,
   updatePost,
   deletePost,
-  newPostForm,
-  createNewPost,
   addNewComment
 } = require("../controllers/posts_controller");
 
-router.get("/newPost", newPostForm);
-router.post("/", createNewPost);
+router.post("/", addNewPost);
 router.get("/", allPosts);
+router.get("/user/:userId", usersAllPosts);
+router.get("/usersPosts", currentUsersAllPosts);
 router.get("/:id", onePost);
 router.put("/:id", updatePost);
 router.post("/:id/comments", addNewComment);

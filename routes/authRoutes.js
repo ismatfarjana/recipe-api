@@ -30,10 +30,10 @@ router.get("/contact", (req, res) => {
 
 //all :id routes needs to stay at the bottom of other routes.
 
-router.get("/register", registrationForm);
+// router.get("/register", registrationForm);
 router.post("/register", createNewRegistration);
 router.get("/logout", logout);
-router.get("/login", loginForm);
+// router.get("/login", loginForm);
 router.post("/login", login);
 router.get("/user_profile", currentUser);
 router.get("/users", allUsers);
