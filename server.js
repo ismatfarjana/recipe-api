@@ -19,12 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //access-controle-allow-origin for react
-app.use(
-  cors({
-    origin: "https://syeda-recipe-react.herokuapp.com",
-    credentials: true
-  })
-);
+app.use(cors());
 
 app.use(
   expressSession({
