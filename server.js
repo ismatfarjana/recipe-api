@@ -1,7 +1,7 @@
 const express = require("express");
 const expressSession = require("express-session");
 const bodyParser = require("body-parser");
-// const exphbs = require("express-handlebars");
+const cors = require("cors");
 const MongoStore = require("connect-mongo")(expressSession);
 const mongoose = require("mongoose");
 const passport = require("passport");
