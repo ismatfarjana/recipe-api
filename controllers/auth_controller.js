@@ -65,13 +65,9 @@ const logout = (req, res) => {
 // };
 
 const login = (req, res, next) => {
-  const loginFunc = passport.authenticate("local", {
-    successRedirect: "/",
-    // successFlash: `Welcome! ${req.user}`,
-    failureRedirect: "/users/login"
-    // failureFlash: "Invalid email/ password"
+  passport.authenticate("local", (req, res) => {
+    res.json({ userId: req.user._id });
   });
-  loginFunc(req, res, next);
 };
 
 module.exports = {
